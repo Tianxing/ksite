@@ -1,0 +1,11 @@
+<?php include APP_PATH . "/views/header.html" ?>
+<?php include APP_PATH . "/views/doc/form.html" ?>
+
+
+<?php foreach($articles as $k => $v) : ?>
+标题:<a href="/doc/art/id/<?= $v['id'] ?>"><?= $v['title'] ?>--<?= $v['catTitle'] ?></a><hr/>
+<?= $v['introtext'] ?><hr/>
+<?php endforeach ?>
+
+<?php include APP_PATH . "/views/pagebar.html" ?>
+<?php include APP_PATH . "/views/footer.html" ?>

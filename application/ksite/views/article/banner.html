@@ -1,0 +1,8 @@
+<?php $index = ViewPlugin::makeIndex($article['index']) ?>
+<?php foreach($index as $k => $v) : ?>
+  <?php if (isset($v['url']) && !empty($v['url'])) : ?>
+    <a href="<?= $v['url'] ?>"><?= $v['title'] ?></a>.
+  <?php else : ?>
+    <?= $v['title'] ?>.
+  <?php endif ?>
+<?php endforeach ?>

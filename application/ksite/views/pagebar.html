@@ -1,0 +1,40 @@
+<?php $num = ceil($count/$pageNum) ?>
+
+<?php if($num == 1) :?>
+<?php return ''; ?>
+<?php endif ?>
+
+<?php if($page > 1) : ?>
+<a href="<?= preg_replace('#/page/\d+#', '/page/' . ($page - 1), $_SERVER['REQUEST_URI'])?>">上一页</a>.
+<?php else : ?>
+上一页.
+<?php endif ?>
+
+<?php for($i=1; $i <= $num; $i++) : ?>
+
+  <?php if($page == $i) : ?>
+  <?= $i ?>.
+  <?php continue ?>
+  <?php endif ?>
+
+  <?php if(false === strpos($_SERVER['REQUEST_URI'], '/page/')) : ?>
+  <a href="<?= false === strpos($_SERVER['REQUEST_URI'], '?') ? $_SERVER['REQUEST_URI'] . '/page/' . $i : str_replace('?', '/page/' . $i . '?', $_SERVER['REQUEST_URI']) ?>"><?= $i ?></a>.
+  <?php else : ?>
+  <a href="<?= preg_replace('#/page/\d+#', '/page/' . $i, $_SERVER['REQUEST_URI'])?>"><?= $i ?></a>.
+  <?php endif ?>
+
+<?php endfor ?>
+
+
+<?php if($page < $num ) : ?>
+  <?php if(false === strpos($_SERVER['REQUEST_URI'], '/page/')) : ?>
+  <a href="<?= false === strpos($_SERVER['REQUEST_URI'], '?') ? $_SERVER['REQUEST_URI'] . '/page/' . ($page + 1) : str_replace('?', '/page/' . ($page + 1) . '?', $_SERVER['REQUEST_URI']) ?>">下一页</a>.
+  <?php else : ?>
+  <a href="<?= preg_replace('#/page/\d+#', '/page/' . ($page + 1), $_SERVER['REQUEST_URI'])?>">下一页</a>
+  <?php endif ?>
+<?php else : ?>
+下一页
+<?php endif ?>
+
+当前第<?= $page ?>页,共<?= $num ?>页
+<hr/>

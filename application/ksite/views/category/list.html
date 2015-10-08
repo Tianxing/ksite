@@ -1,0 +1,15 @@
+<?php include APP_PATH . "/views/header.html" ?>
+<?php include APP_PATH . "/views/category/banner.html" ?>
+
+<hr/>
+
+<?php foreach($articles as $k => $v) : ?>
+<a href="<?= ViewPlugin::Arturl($v) ?>">[<?= ViewPlugin::formatDate('Y-m-d', $v['created']) ?>]<?= $v['title'] ?></a><br/>
+<?php endforeach ?>
+
+<hr/>
+
+<?php include APP_PATH . "/views/pagebar.html" ?>
+
+页底:
+<?php include APP_PATH . "/views/footer.html" ?>

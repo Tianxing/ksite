@@ -1,0 +1,6 @@
+<?php foreach($left as $k => $v) : ?>
+<?= $v['title'] ?><br/>
+  <?php foreach($v['children'] as $kk => $vv) : ?>
+  --<a href="<?= $vv['url'] ?>"><?= $vv['title'] ?></a><br/>
+  <?php endforeach ?>
+<?php endforeach ?>

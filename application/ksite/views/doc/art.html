@@ -1,0 +1,12 @@
+<?php include APP_PATH . "/views/header.html" ?>
+<?php include APP_PATH . "/views/doc/form.html" ?>
+
+<h1><?= $article['title'] ?></h1>
+<hr/>
+
+发布时间:<?= ViewPlugin::formatDate('Y-m-d', $article['created']) ?>
+<hr/>
+<?= $article['introtext'] ?>
+
+页底:
+<?php include APP_PATH . "/views/footer.html" ?>

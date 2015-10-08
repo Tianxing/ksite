@@ -1,0 +1,42 @@
+<?php include APP_PATH . "/views/header.html" ?>
+<?php include APP_PATH . "/views/product/left.html" ?>
+
+<hr/>
+价格:
+<b><?= $page['price'] ?></b>元/月起 <br/>
+<hr/>
+
+用户案例:<br/>
+<?php foreach($page['userCase'] as $k => $v) : ?>
+<?= $v['title'] ?><br/>
+<a href="<?= ViewPlugin::Arturl($v) ?>"><img src="<?= $v['images']['image_intro'] ?>" alt="<?= $v['images']['image_intro_alt'] ?>"></a><br/>
+<?php endforeach ?>
+<hr/>
+
+推荐配置:<br/>
+<?php foreach($page['recommend'] as $k => $v) : ?>
+<?= $v['title'] ?><br/>
+价格:<?= $v['price']?> CPU:<?= $v['cpu'] ?> 内存:<?= $v['mem'] ?> 硬盘: <?= $v['dist'] ?> <a href="<?= $v['url'] ?>">立即购买</a><br/>
+<?php endforeach ?>
+<hr/>
+
+购买指导:<br/>
+<?php foreach($page['buy'] as $k => $v) : ?>
+<a href="<?= ViewPlugin::Arturl($v) ?>">[<?= ViewPlugin::formatDate('m.d', $v['created']) ?>]<?= $v['title'] ?></a><br/>
+<?php endforeach ?>
+<hr/>
+
+操作指引:<br/>
+<?php foreach($page['guide'] as $k => $v) : ?>
+<a href="<?= ViewPlugin::Arturl($v) ?>">[<?= ViewPlugin::formatDate('m.d', $v['created']) ?>]<?= $v['title'] ?></a><br/>
+<?php endforeach ?>
+<hr/>
+
+常见问题:<br/>
+<?php foreach($page['question'] as $k => $v) : ?>
+<a href="<?= ViewPlugin::Arturl($v) ?>">[<?= ViewPlugin::formatDate('m.d', $v['created']) ?>]<?= $v['title'] ?></a><br/>
+<?php endforeach ?>
+<hr/>
+
+页底:
+<?php include APP_PATH . "/views/footer.html" ?>

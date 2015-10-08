@@ -1,0 +1,79 @@
+<html>
+ <head>
+   <title>kscloud</title>
+ </head>
+ <body>
+
+        <?php include APP_PATH . "/views/header.html" ?>
+
+    产品解决方案: <a href="/product/kec">KEC</a><br/>
+    
+    行业解决方案:<a href="/business/web">WEB</a><br/>
+
+    <a href="/doc/index">帮助中心</a><br/>
+
+    <hr/>
+
+    焦点图:<br/>
+    <?php foreach($articles['focusImgs'] as $k => $v) : ?>
+    <a href="<?= ViewPlugin::Arturl($v) ?>"><img src="<?= $v['small'] ?>" alt=""></a><br/>
+    <a href="<?= ViewPlugin::Arturl($v) ?>"><img src="<?= $v['middle'] ?>" alt=""></a><br/>
+    <a href="<?= ViewPlugin::Arturl($v) ?>"><img src="<?= $v['big'] ?>" alt=""></a><br/>
+    <?php endforeach ?>
+    
+    <hr/>
+
+    滚动公告:<br/>
+    <a href="<?= ViewPlugin::Arturl($articles['notice'][0]) ?>"><?= $articles['notice'][0]['title'] ?> <?= ViewPlugin::formatDate('m-d', $articles['notice'][0]['created']) ?></a>.
+    <a href="<?= ViewPlugin::Arturl($articles['platform'][0]) ?>"><?= $articles['platform'][0]['title'] ?> <?= ViewPlugin::formatDate('m-d', $articles['platform'][0]['created']) ?></a>.
+    <a href="<?= ViewPlugin::Arturl($articles['news'][0]) ?>"><?= $articles['news'][0]['title'] ?> <?= ViewPlugin::formatDate('m-d', $articles['news'][0]['created']) ?></a>.
+
+    <hr/>
+
+
+    用户案例:<br/>
+
+    <?php foreach($articles['userCase'] as $k => $v) : ?>
+    <?= $v['title'] ?><br/>
+    <a href="<?= ViewPlugin::Arturl($v) ?>"><img src="<?= $v['images']['image_intro'] ?>" alt="<?= $v['images']['image_intro_alt'] ?>"></a><br/>
+    <?php endforeach ?>
+
+    <hr/>
+
+    合作伙伴:<br/>
+
+    <?php foreach($articles['friends'] as $k => $v) : ?>
+    <a href="<?= ViewPlugin::Arturl($v) ?>"><img src="<?= $v['images']['image_intro'] ?>" alt="<?= $v['images']['image_intro_alt'] ?>"></a>
+    <?= $v['title'] ?>
+    <?php endforeach ?>
+
+    <hr/>
+
+    品牌事件（更名为：新闻动态）:<br/>
+    <?php foreach($articles['news'] as $k => $v) : ?>
+    <a href="<?= ViewPlugin::Arturl($v) ?>">[<?= ViewPlugin::formatDate('m.d', $v['created']) ?>]<?= $v['title'] ?></a><br/>
+    <?php endforeach ?>
+
+    产品更新&公告:<br/>
+    <?php foreach($articles['noticePlatform'] as $k => $v) : ?>
+    <a href="<?= ViewPlugin::Arturl($v) ?>">[<?= ViewPlugin::formatDate('m.d', $v['created']) ?>]<?= $v['title'] ?></a><br/>
+    <?php endforeach ?> 
+
+    最新活动:<br/>
+    <?php foreach($articles['actPlan'] as $k => $v) : ?>
+
+      <?php if($v['images']['image_intro']) : ?>
+      <a href="<?= ViewPlugin::Arturl($v) ?>"><img src="<?= $v['images']['image_intro'] ?>" alt="<?= $v['images']['image_intro_alt'] ?>"></a><br/>
+      <?php else : ?>
+      <a href="<?= ViewPlugin::Arturl($v) ?>">[<?= ViewPlugin::formatDate('m.d', $v['created']) ?>]<?= $v['title'] ?></a><br/>
+      <?php endif ?>
+    
+    <?php endforeach ?>
+    <hr/>
+
+
+    页底:
+    <?php include APP_PATH . "/views/footer.html" ?>
+
+ </body>
+</html>

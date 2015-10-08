@@ -1,0 +1,12 @@
+<?php foreach($index as $k => $v) : ?>
+  <?php if (isset($v['url']) && !empty($v['url'])) : ?>
+    <a href="<?= $v['url'] ?>"><?= $v['title'] ?></a><br/>
+  <?php else : ?>
+    <a href="#<?= $v['id'] ?>"><?= $v['title'] ?></a><br/>
+    <?php if (isset($v['children'])) : ?>
+      <?php foreach($v['children'] as $kk => $vv) : ?>
+      <a href="/category/list/id/<?= $vv['id'] ?>"><?= $vv['title'] ?></a><br/>
+      <?php endforeach ?>
+    <?php endif ?>
+  <?php endif ?>
+<?php endforeach ?>
